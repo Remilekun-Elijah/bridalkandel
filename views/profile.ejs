@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Remilekun">
+    <meta name="email" content="remilekunelijah97@gmail.com">
+
+    <meta name="title" content="Bridalkandel - Buy or sell your used|new wedding gowns">
+    <meta name="keywords" content="wedding, gown, gowns, store, cloth, clothes,retail, buy, online store, fashion">
+    <title>Bridalkandel - Profile</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="stylesheet" href="../fonts/icofont/icofont.min.css">
+    <link rel="stylesheet" href="../fonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="../stylesheets/vendor/slick.css">
+    <link rel="stylesheet" href="../stylesheets/vendor/bootstrap.css">
+    <link rel="stylesheet" href="../stylesheets/custom/main.css">
+    <link rel="stylesheet" href="../stylesheets/custom/profile.css">
+    <link rel="stylesheet" href="../stylesheets/lib.css">
+
+<style>
+    .userImage{
+        width: 90%;
+        height: 80px;
+    }
+</style>
+
+</head>
+
+
+<body>
+    <%- include("../template/header")%>
+        <%- include("../template/sidebar")%>
+            <%- include("../template/cart")%>
+
+                <section class="single-banner" style="background: url(../images/gown.jpg) no-repeat top; background-size: cover;">
+                    <div class="container">
+                        <h2>my profile</h2>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">profile</li>
+                        </ol>
+                    </div>
+                </section>
+                <section class="profile-part">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="account-card">
+                                    <div class="account-title">
+                                        <h4>Your Profile</h4><button data-toggle="modal" data-target="#profile-edit">edit profile</button></div>
+                                    <div class="account-content profile">
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <div class="profile-image">
+                                                    <a href="#" id="" data-toggle="modal" data-target="#upload-img"><img src="../images/user.png" class="userImage" alt="user"></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-5">
+                                                <div class="form-group"><label class="form-label">name</label>
+                                                    <input class="form-control fullName" type="text" value="Your name" disabled></div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-5">
+                                                <div class="form-group"><label class="form-label">Email</label>
+                                                    <input class="form-control userEmail" type="email" value="Your email" disabled></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="account-card">
+                                    <div class="account-title">
+                                        <h4>contact number</h4><button data-toggle="modal" data-target="#contact-add">add contact</button></div>
+                                    <div class="account-content number">
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="profile-card contact active">
+                                                    <h5>primary</h5>
+                                                    <p class="primaryNumber" contenteditable="true">None provided</p>
+                                                    <ul class="user-action">
+                                                        <li>
+                                                            <button class="edit" title="Edit This" data-toggle="modal" data-target="#contact-edit">
+                                                                <i class="icofont-edit"></i></button></li>
+                                                        <li>
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="profile-card contact">
+                                                    <h5>secondary</h5>
+                                                    <p class="secondaryNumber">None provided</p>
+                                                    <ul class="user-action">
+                                                        <li><button class="edit" title="Edit This" data-toggle="modal" data-target="#contact-edit"><i class="icofont-edit"></i></button></li>
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="profile-card contact mb-0">
+                                                    <h5>Other</h5>
+                                                    <p class="otherNumber">None provided</p>
+                                                    <ul class="user-action">
+                                                        <li><button class="edit" title="Edit This" data-toggle="modal" data-target="#contact-edit"><i class="icofont-edit"></i></button></li>
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="account-card">
+                                    <div class="account-title">
+                                        <h4>delivery address</h4><button data-toggle="modal" data-target="#address-add">add address</button></div>
+                                    <div class="account-content address">
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="profile-card address active">
+                                                    <h5 id="homeAddressTitle">Home</h5>
+                                                    <p class="homeAddress">None provided</p>
+                                                    <ul class="user-action">
+                                                        <li><button class="edit" title="Edit This" data-toggle="modal" data-target="#address-edit"><i class="icofont-edit"></i></button></li>
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="profile-card address">
+                                                    <h5 id="officeAddressTitle">Office</h5>
+                                                    <p class="officeAddress">None provided</p>
+                                                    <ul class="user-action">
+                                                        <li><button class="edit" title="Edit This" data-toggle="modal" data-target="#address-edit"><i class="icofont-edit"></i></button></li>
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="profile-card address mb-0">
+                                                    <h5 id="otherAddressTitle">Other</h5>
+                                                    <p class="otherAddress">None provided</p>
+                                                    <ul class="user-action">
+                                                        <li><button class="edit" title="Edit This" data-toggle="modal" data-target="#address-edit"><i class="icofont-edit"></i></button></li>
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="account-card mb-0">
+                                    <div class="account-title">
+                                        <h4>payment option</h4><button data-toggle="modal" data-target="#payment-add">add card</button></div>
+                                    <div class="account-content">
+                                        <div class="row">
+                                            <!-- <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="payment-card payment active"><img src="../../images/payment/01.png" alt="payment">
+                                                    <h4>card number</h4>
+                                                    <p><span>****</span><span>****</span><span>****</span><sup>1876</sup></p>
+                                                    <h5>miron mahmud</h5>
+                                                    <ul class="user-action">
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="payment-card payment"><img src="../../images/payment/02.png" alt="payment">
+                                                    <h4>card number</h4>
+                                                    <p><span>****</span><span>****</span><span>****</span><sup>1876</sup></p>
+                                                    <h5>miron mahmud</h5>
+                                                    <ul class="user-action">
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-lg-4 alert fade show">
+                                                <div class="payment-card payment mb-0"><img src="../../images/payment/03.png" alt="payment">
+                                                    <h4>card number</h4>
+                                                    <p><span>****</span><span>****</span><span>****</span><sup>1876</sup></p>
+                                                    <h5>miron mahmud</h5>
+                                                    <ul class="user-action">
+                                                        <li><button class="delete" title="Remove This" data-dismiss="alert"><i class="icofont-ui-delete"></i></button></li>
+                                                    </ul>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <div class="modal fade" id="upload-img">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button class="modal-close" data-dismiss="modal"><i class="icofont-close"></i></button>
+                <form class="modal-form" action="http://localhost:5000/user/one?token=" id="profile-img">
+                    <div class="form-title">
+                        <h3 class="mb-20">Profile Picture</h3>
+
+                        <img src="../images/user.png" class="userImage" style="width:70%; height: 250px; border-radius: 100%" id="">
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label class="form-label">number</label>-->
+<!--                        <input class="form-control" type="text" name="number" id="number" placeholder="Enter your number">-->
+<!--                    </div>-->
+                    <div class="upload-div mt-20 d-flex">
+                        <label for="img" class="form-btn" style="border-bottom-right-radius: 0; cursor:pointer; border-top-right-radius: 0">Choose image</label>
+                         <button class="form-bt btn btn-success" style="width:40%; height:45px; border-bottom-left-radius: 0; border-top-left-radius: 0" type="submit">Upload</button>
+                    </div>
+                    <input type="file" class="d-none" id="img" name="picture">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="modal fade" id="contact-add">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content"><button class="modal-close" data-dismiss="modal"><i class="icofont-close"></i></button>
+                            <form class="modal-form" action="http://localhost:5000/user/one?token=" id="numberForm">
+                                <div class="form-title">
+                                    <h3>add new contact</h3>
+                                </div>
+                                <div class="form-group"><label class="form-label">title</label>
+                                    <select class="form-select" name="type" id="type">
+                                        <option selected>choose title</option>
+                                        <option value="primary">primary</option>
+                                        <option value="secondary">secondary</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">number</label>
+                                    <input class="form-control" type="text" name="number" id="number" placeholder="Enter your number">
+                                </div>
+                                <button class="form-btn" type="submit">save contact info</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="address-add">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <button class="modal-close" data-dismiss="modal">
+                                <i class="icofont-close"></i>
+                            </button>
+                            <form class="modal-form">
+                                <div class="form-title">
+                                    <h3>add new address</h3>
+                                </div>
+                                <div class="form-group"><label class="form-label">title</label>
+                                    <select class="form-select">
+                                        <option selected>choose title</option>
+                                        <option value="home">home</option>
+                                        <option value="office">office</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">address</label>
+                                    <textarea class="form-control" placeholder="Enter your address"></textarea>
+                                </div><button class="form-btn" type="submit">save address info</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="payment-add">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content"><button class="modal-close" data-dismiss="modal"><i class="icofont-close"></i></button>
+                            <form class="modal-form">
+                                <div class="form-title">
+                                    <h3>add new payment</h3>
+                                </div>
+                                <div class="form-group"><label class="form-label">card number</label><input class="form-control" type="text" placeholder="Enter your card number"></div><button class="form-btn" type="submit">save card info</button></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="profile-edit">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content"><button class="modal-close" data-dismiss="modal"><i class="icofont-close"></i></button>
+                            <form class="modal-form" id="update-basic-info" data-name="profile-info">
+                                <div class="form-title">
+                                    <h3>edit profile info</h3>
+                                </div>
+<!--                                <div class="form-group"><label class="form-label">profile image</label>-->
+<!--                                    <input class="form-control" name="avatar" type="file" id="avatar">-->
+<!--                                </div>-->
+                                <div class="form-group"><label class="form-label">name</label>
+                                    <input class="form-control" type="text" name="fullname" placeholder="Your new name"></div>
+                                <div class="form-group">
+                                    <label class="form-label">email</label>
+                                    <input class="form-control" type="text" name="email" placeholder="Your new email">
+                                </div>
+                                <button class="form-btn" type="submit">save profile info</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="contact-edit">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content"><button class="modal-close" data-dismiss="modal"><i class="icofont-close"></i></button>
+                            <form class="modal-form" action="http://localhost:5000/api/v1/user/one?token=" id="edit-number-form" data-name="contact-info">
+                                <div class="form-title">
+                                    <h3>edit contact info</h3>
+                                </div>
+                                <div class="form-group"><label class="form-label">title</label>
+                                    <select class="form-select" name="type">
+                                        <option value="primary" selected>Primary</option>
+                                        <option value="secondary">Secondary</option>
+                                        <option value="other">Other</option>
+                                    </select></div>
+                                <div class="form-group"><label class="form-label">number</label>
+                                    <input class="form-control" name="number" type="text"></div>
+                                <button class="form-btn" type="submit">save contact info</button></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="address-edit">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content"><button class="modal-close" data-dismiss="modal"><i class="icofont-close"></i></button>
+                            <form class="modal-form" data-name="address-info" id="edit-address-info">
+                                <div class="form-title">
+                                    <h3>edit address info</h3>
+                                </div>
+                                <div class="form-group"><label class="form-label">title</label>
+                                    <select class="form-select" name="type">
+                                        <option value="home" selected>home</option>
+                                        <option value="office">office</option>
+                                        <option value="other">other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">address</label>
+                                    <textarea name="address" class="form-control" placeholder="jalkuri, fatullah, narayanganj-1420. word no-09, road no-17/A"></textarea></div><button class="form-btn" type="submit">save address info</button></form>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer-part">
+
+                    <p class="mb-0">Bridal Kandel | &COPY; Copyright all rights reserved.</p>
+                    <p class="mt-0">built by <a href="#">Remilekun Elijah</a></p>
+
+                </footer>
+                <script src="../javascripts/vendor/jquery-1.12.4.min.js"></script>
+                <script src="../javascripts/app.js"></script>
+                <script src="../javascripts/vendor/popper.min.js"></script>
+                <script src="../javascripts/vendor/bootstrap.min.js"></script>
+                <script src="../javascripts/custom/header-part.js"></script>
+                <script src="../javascripts/custom/select-option.js"></script>
+                <script src="../javascripts/custom/dropdown.js"></script>
+                <script src="../javascripts/custom/main.js"></script>
+                <script src="../javascripts/profile.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+} */
+
+
+/* .account-dropdown:hover .option-list {
+    display: block !important;
+} */
+
+body {
+    background-color: #eee !important;
+}
+
+#register {
+    /* width: 0%; */
+    margin-top: 0 !important;
+}
+
+#register h1 {
+    width: 100% !important;
+    /* border: 1px solid red; */
+}
+
+#register fieldset {
+    width: 75%;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+}
+
+#register form {
+    /* width: 100%; */
+    background-color: white !important;
+    background: var(--white);
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Remilekun">
+    <meta name="email" content="remilekunelijah97@gmail.com">
+    <meta name="title" content="Bridalkandel - Buy or sell your used|new wedding gowns">
+    <meta name="keywords" content="wedding, gown, gowns, store, cloth, clothes,retail, buy, online store, fashion">
+    <title>Bridalkandel - Sign Up</title>
+    <link rel="stylesheet" href="../stylesheets/custom/user-form.css">
+    <link rel="stylesheet" href="../fonts/icofont/icofont.min.css">
+    <link rel="stylesheet" href="../stylesheets/vendor/bootstrap.css">
+    <link rel="stylesheet" href="../stylesheets/custom/main.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/lib.css">
+    <style>
+        section {
+            font-family: "poppins" cursive !important;
+        }
+        
+        form .requiredX {
+            position: relative;
+            top: 5px;
+        }
+        
+        #register,
+        #login {
+            margin-top: 70px;
+        }
+        
+        form p {
+            font-size: 18px;
+        }
+        
+        .good,
+        .better,
+        .best {
+            width: 22%;
+            height: 10px;
+            position: relative;
+            transition: background .3s;
+        }
+        
+        footer {
+            margin-top: 20vh !important;
+            /* position: relative !important;
+         bottom: 0 px !important; */
+        }
+        
+        form {
+            width: 50%
+        }
+        
+        @media only screen and (min-width: 576px) {
+            #register,
+            #login {
+                margin-top: 50px !important;
+            }
+            form p {
+                font-size: 20px;
+            }
+            .good,
+            .better,
+            .best {
+                width: 25%;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+            form {
+                width: 75% !important
+            }
+        }
+        
+        @media only screen and (max-width: 500px) {
+            form {
+                width: 80% !important
+            }
+        }
+        
+        @media only screen and (max-width: 425px) {
+            fieldset {
+                width: 85% !important;
+            }
+            form {
+                width: 100% !important
+            }
+        }
+        
+        form button:disabled {
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar start-->
+    <header>
+    </header>
+    <section id="register" class="mb-5 d-flex justify-content-center align-items-cente mt-0 -5">
+        <form action="http://localhost:5000/api/v1/user/create-account" method="POST" class=" py-20" name="register">
+            <h1 class="text-center mb-0 text-25" style="color: #8740dd;">Create an account</h1>
+            <h3 class="text-warning text-center text-18 px-3" id="signupErr"></h3>
+            <fieldset class="mx-auto-lib user-form-part">
+                <div class="form-group mb-3">
+                    <label for="name" class="text-17">Full Name<span class="requiredX text-danger"> *</span></label>
+                    <input type="name" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="E.g John Doe" autocapitalize="true" autocomplete="name" autofocus required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="email" class=" text-17">Email address<span class="requiredX text-danger"> *</span></label>
+                    <input type="email" name="email" class="mb-2 form-control" id="email" aria-describedby="emailHelp" placeholder="E.g johndoe@yahoo.com" autocomplete="email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="number" class=" text-17">Phone Number<span class="requiredX text-danger"> *</span></label>
+                    <input type="tel" name="number" class="mb-0 form-control" id="number" aria-describedby="tel" placeholder="E.g 09012312323" autocomplete="tel" required>
+                    <small id="numberErr" class="text-danger text-18 d-none"></small>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="pin" class="text-17">Password<span class="requiredX text-danger"> *</span></label>
+                    <input type="password" name="password" class="form-control border" id="pin" aria-describedby="password" placeholder="Enter your password" required>
+
+                    <div class=" passwordHealth w-100">
+                        <div class="d-flex align-items-center mt-1 mb-0">
+                            <p class="text-success mb-0" style="font-size: 16px;">Strength</p>
+                            <small class="ms-4 text-muted mb-0">must include character(s)</small>
+                        </div>
+
+                        <div style="height: 18px;" class="w-100 flex align-items-center mt-0">
+                            <span class="good border border-1" style="border-right:0 !important"></span><span class="better border border-1" style="border-right:0 !important; border-left: 0 !important;"></span><span class="best border border-1" style="border-left:0 !important"></span>
+                            <small id="infoMsg" style="margin-left: 5%; width: 20%; font-size: 16px;" class=" text-secondary">Waiting</small>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group mb-0">
+                    <label for="confirm-pin" class="text-17">Confirm Password<span class="requiredX text-danger"> *</span></label>
+                    <input type="password" name="Cpassword" class="form-control border" id="confirm-pin" aria-describedby="password" autocomplete="false" placeholder="Enter your password again" required>
+                    <small id="errMsg" class="text-danger text-18"></small>
+                </div>
+                <div class="form-button">
+                    <button type="submit" class=" w-100 mt-" name="submit">Submit</button>
+                </div>
+            </fieldset>
+
+            <p class="text-center mt-4">Already have an account, <a href="/user/login" class="text-decoration-none" style="border-bottom: 2px solid #8740dd; font-family: 'poppins'; color: #8740dd;">Login</a>.</p>
+        </form>
+
+
+        <section class="container text-center text-black bg-white pt-100 pb-100 d-none mt-100 mb-100" id="msg">
+
+            <h3 class="text-sucess text-30" id="signupSuccess"></h3>
+            <h3 class="text-25">Use the link sent to your email address to activate your account.</h3>
+            <h4 class="text-25">You have <b class="text-pink">15minutes</b> before the link expires.</h4>
+        </section>
+    </section>
+
+    <footer class="footer-part">
+        <p class="mb-0">Bridal Kandel | &COPY; Copyright all rights reserved.</p>
+        <p class="mt-0">built by <a href="#">Remilekun Elijah</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        function admin(url) {
+
+            const pages = {
+                msg: $("#msg"),
+                register: $("#register form")
+            };
+
+            $("#register form p>a").click(e => {
+                $("#register").fadeOut(300, () => {
+                    pages.login.parent().removeClass("d-none");
+                    $("#login").fadeIn(400);
+                    pages.register.parent().addClass("d-none");
+
+                })
+                $("#noUser").text("");
+            });
+
+
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/admin";
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return false;
+            }
+            const fmt1 = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+                fmt2 = /[a-zA-Z0-9]/,
+                fmt3 = /[0-9]/
+
+            $("#number").on("keyup", e => {
+                console.log(/[a-zA-Z]/.test(e.target.value))
+                if (/[ `!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~a-zA-Z]/.test(e.target.value)) {
+                    // console.log()
+                    document.querySelector("#numberErr").classList.replace("d-none", "d-block");
+                    $("#numberErr").text("Invalid number!");
+                    $("form button").attr("disabled", true)
+                } else {
+                    document.querySelector("#numberErr").classList.replace("d-block", "d-none");
+                    $("#numberErr").text(" ")
+                    $("form button").attr("disabled", false)
+                }
+            })
+            pages.register[0].password.addEventListener("keyup", e => {
+
+                if (e.target.value.length > 5 && fmt2.test(e.target.value)) {
+
+                    $("#infoMsg").removeClass("text-danger").addClass("text-warning");
+                    $(".good").addClass("bg-danger");
+                    $(".better").addClass("bg-warning");
+                    $(".best").removeClass("bg-success");
+                    $("#infoMsg").text("Good");
+                    // $(e.target).removeClass("border-danger").addClass("border-warning");
+
+                    if (fmt1.test(e.target.value) === true) {
+                        // fmt3.test(e.target.value) === true
+                        $("#infoMsg").removeClass("text-warning").addClass("text-success");
+                        $(".best").addClass("bg-success");
+                        $("#infoMsg").text("Excellent");
+                        $(e.target).removeClass("border-danger").addClass("border-success");
+                    }
+
+                } else {
+                    $(".better").removeClass("bg-warning");
+                    $(".best").removeClass("bg-success");
+                    $("#infoMsg").addClass("text-danger").removeClass("text-success");
+                    $(".good").addClass("bg-danger");
+                    $("#infoMsg").text("Poor");
+                    $(e.target).addClass("border-danger")
+                }
+
+                // if confirm password is not empty
+                if (pages.register[0].Cpassword.value != '') {
+                    // and the password matched
+                    if (e.target.value === pages.register[0].Cpassword.value) {
+
+                        // remove the red border
+                        $(pages.register[0].Cpassword).removeClass("border-danger");
+                        // hide error message
+                        $("#errMsg").text("");
+                        // enable submit button
+                        pages.register[0].submit.disabled = false;
+
+
+                    } else {
+                        console.log(document.querySelector("#infoMsg").textContent);
+                        // paint border red
+                        $(pages.register[0].Cpassword).addClass("border-danger");
+                        //  show error message
+                        $("#errMsg").text("Password doesn't match!");
+                        // disable submit button
+                        pages.register[0].submit.disabled = true;
+                    }
+                }
+            });
+
+            pages.register[0].Cpassword.addEventListener("keyup", e => {
+
+                if (pages.register[0].password.value != '') {
+
+                    // console.log(e.target.value.indexOf(pass));
+                    if (e.target.value === pages.register[0].password.value || e.target.value == '') {
+
+                        if (document.querySelector("#infoMsg").textContent === "Excellent") {
+                            $("#errMsg").text("");
+                            pages.register[0].submit.disabled = false;
+                            $(e.target).removeClass("border-danger").addClass("border-success");
+                            console.log(pages.register[0].submit);
+
+                            if (/[ `!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~a-zA-Z]/.test($("#number").val())) $("form button").attr("disabled", true);
+                            window.scrollTo(20, 0);
+                        } else $("#errMsg").html("Your first <b style='cursor:pointer !important'><label for='pin'>password</label></b> strength isn't strong enough");
+
+                    } else {
+                        $(e.target).addClass("border-danger");
+                        $("#errMsg").text("Password doesn't match!");
+                        pages.register[0].submit.disabled = true;
+
+
+                    }
+
+
+                } else {
+                    console.log(document.querySelector("#infoMsg").textContent);
+                    console.log(e.target.value)
+                }
+
+
+                // else pages.register[0].submit.disabled = false;
+            });
+            // let b = pages.register[0];
+            // console.log(b)
+            document.querySelector("form").addEventListener("submit", e => {
+                e.preventDefault();
+
+                window.scrollTo(0, 0);
+
+                $("#noUser").text("");
+                $("#signupErr").text("Proccessing info...");
+                const url = document.querySelector("form").getAttribute("action");
+                console.log(url);
+
+                let data = {
+                    name: $(e)[0].target.name.value,
+                    email: $(e)[0].target.email.value,
+                    number: $(e)[0].target.number.value,
+                    password: $(e)[0].target.password.value,
+                    type: $(".text").text()
+                };
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data,
+                    success: (res) => {
+                        if (!res) console.error(data.msg);
+                        // console.log(data);
+                        $("#signupErr").removeClass("text-danger");
+                        $("#signupErr").removeClass("text-warning").addClass("text-success");
+                        $("#signupErr").text("Created successfully");
+                        $("#signupSuccess").text(res.data)
+                        setTimeout(() => {
+                            // fadeOut(200)
+
+                            pages.register.fadeOut(300, () => {
+                                pages.msg.removeClass("d-none").addClass("d-block");
+                                $("#msg").fadeIn(400);
+                                pages.register.addClass("d-none");
+
+                            })
+                        }, 2000)
+
+                    },
+                    error: (msg) => {
+                        $("#signupErr").text(msg.responseJSON.msg);
+
+                        $("#signupErr").removeClass("text-warning").addClass("text-danger");
+                    },
+                    dataType: "json"
+                });
+
+                console.log(data);
+            });
+
+
+        };
+
+        // console.log()
+        admin(document.location.href)
+    </script>
+    <script src="../javascripts/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../javascripts/vendor/popper.min.js"></script>
+    <script src="../javascripts/vendor/bootstrap.min.js"></script>
+    <script src="../javascripts/custom/header-part.js"></script>
+    <script src="../javascripts/custom/product-part.js"></script>
+    <script src="../javascripts/custom/product-view.js"></script>
+    <script src="../javascripts/custom/select-option.js"></script>
+    <script src="../javascripts/custom/dropdown.js"></script>
+    <script src="../javascripts/vendor/slick.min.js"></script>
+    <script src="../javascripts/custom/slick.js"></script>
+    <script src="../javascripts/custom/main.js"></script>
+</body>
+
+</html>

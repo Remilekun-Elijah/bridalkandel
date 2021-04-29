@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Remilekun">
+    <meta name="email" content="remilekunelijah97@gmail.com">
+    <meta name="title" content="Bridalkandel - Buy or sell your used|new wedding gowns">
+    <meta name="keywords" content="wedding, gown, gowns, store, cloth, clothes,retail, buy, online store, fashion">
+    <!-- Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <!-- /Added by HTTrack -->
+    <title>Bridalkandil - Login</title>
+    <link rel="icon" href="../../images/favicon.png">
+    <link rel="stylesheet" href="../fonts/icofont/icofont.min.css">
+    <link rel="stylesheet" href="../fonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="../stylesheets/vendor/bootstrap.css">
+    <link rel="stylesheet" href="../stylesheets/custom/main.css">
+    <link rel="stylesheet" href="../stylesheets/custom/user-form.css">
+
+    <link rel="stylesheet" href="../stylesheets/lib.css">
+
+    <style>
+        @media screen and (max-width: 576px) {}
+        
+        @media screen and (max-width: 335px) {
+            .user-form-card {
+                padding: 10px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="user-form-part" id="login">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    <div class="user-form-logo">
+                        <a href="/"><img src="../../images/logo.png" alt="logo"></a>
+                    </div>
+                    <div class="user-form-card">
+                        <div class="user-form-title">
+                            <h2>welcome!</h2>
+                            <p>Use your credentials to access</p>
+
+                            <h2 class="text-danger text-center text-18" style="font-size: 17px !important;" id="noUser"></h2>
+                        </div>
+                        <form class="user-form" action="http://localhost:5000/api/v1/user/login">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Enter your password" name="password">
+                            </div>
+                            <div class="form-button">
+                                <button type="submit">login</button>
+                                <p>Forgot your password?<a href="#" id="forgort-password">reset here</a></p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="user-form-remind">
+                        <p>Don't have any account?<a href="/user/create-account">create account</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container text-center text-black bg-white pt-100 pb-100 d-none mt-100 mb-100" id="msg">
+
+        <h3 class="text-sucess text-30" id="forgotPassSuccess">Your request to change your password has been recieved</h3>
+        <h4 class="text-25">Check your <a href="https://mail.google.com" class="text-decoration">email</a> for the link.</h4>
+    </section>
+    </section>
+    <footer class="footer-part">
+        <p class="mb-0">Bridal Kandel | &COPY; Copyright all rights reserved.</p>
+        <p class="mt-0">built by <a href="#">Remilekun Elijah</a></p>
+    </footer>
+    <script src="../javascripts/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../javascripts/vendor/popper.min.js"></script>
+    <script src="../javascripts/vendor/bootstrap.min.js"></script>
+    <script src="../javascripts/custom/main.js"></script>
+
+    <script>
+        // console.log()
+        $("#login form").submit(e => {
+            $("#noUser").removeClass("text-danger").addClass("text-warning");
+            $("#noUser").text("Processing your inputs...");
+            const url = $(e)[0].target["action"];
+            // console.log($(e)[0].target.email.value);
+            e.preventDefault();
+            let info = {
+                email: $(e)[0].target.email.value,
+                password: $(e)[0].target.password.value
+            };
+            console.log($(e)[0].target);
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: info,
+                    success: (res) => {
+                        $("#noUser").removeClass("text-danger");
+                        $("#noUser").removeClass("text-warning").addClass("text-success");
+                        $("#noUser").text("Login successful !");
+                        console.log(res.data);
+                        localStorage.setItem("loginUser", res.token)
+                        setTimeout(() => {
+                            document.location.href = `/`
+                        }, 1000)
+                    },
+                    error: (err) => {
+                        $("#noUser").removeClass("text-warning").addClass("text-danger");
+                        $("#noUser").text(err.responseJSON.err)
+                        console.log(err.responseJSON.err)
+                    },
+                    dataType: "json"
+                })
+            } catch (err) {
+                console.log(err)
+            };
+        })
+
+        $("#forgort-password").click(e => {
+
+            if ($('form #email').val() !== '') {
+
+                $("#noUser").removeClass("text-danger").addClass("text-warning")
+                $("#noUser").text("Working on it...");
+                $("#noUser").addClass("text-warning")
+                try {
+                    $.ajax({
+                        type: "POST",
+                        url: document.querySelector("form").getAttribute("action") + '/forgot-password',
+                        data: {
+                            email: $('form #email').val(),
+                            origin: `${document.location.protocol}//${document.location.host}${document.location.pathname}/forgot-password`
+                        },
+                        success: (res) => {
+                            $("#noUser").removeClass("text-danger");
+                            $("#noUser").removeClass("text-warning").addClass("text-success");
+                            $("#noUser").text("Request recieved!");
+
+                            setTimeout(() => {
+                                // fadeOut(200)
+                                $("#login").fadeOut(300, () => {
+                                    $("#msg").removeClass("d-none").addClass("d-block");
+                                    $("#msg").fadeIn(400);
+                                    $("#login").addClass("d-none");
+
+                                })
+                            }, 2000)
+                        },
+                        error: (err) => {
+                            $("#noUser").removeClass("text-warning").addClass("text-danger");
+                            $("#noUser").text(err.responseJSON.msg)
+                        },
+                        dataType: "json"
+                    })
+                } catch (err) {
+                    console.log(err)
+                };
+            }
+        })
+    </script>
+</body>
+
+</html>
