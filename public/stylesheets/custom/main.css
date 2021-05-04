@@ -1357,13 +1357,13 @@ select {
     border-radius: 50%;
     text-align: center;
     display: inline-block;
-    color: var(--primary);
-    background: var(--primary-light)
+    color: var(--white);
+    background: var(--primary)
 }
 
 .product-filter-list .column-3 i {
-    color: var(--white);
-    background: var(--primary)
+    color: var(--primary);
+    background: var(--primary-light)
 }
 
 @media (max-width: 575px) {

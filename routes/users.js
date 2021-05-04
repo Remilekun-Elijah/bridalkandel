@@ -6,9 +6,7 @@ var router = express.Router();
 // if (express().get("env") === "development") require("dotenv/config");
 
 /* GET users listing. */
-router.get('/my-profile', function(req, res, next) {
-        res.render('profile');
-    }).get("/create-account", (req, res) => {
+router.get("/create-account", (req, res) => {
         res.render("register");
     })
     .get("/login", (req, res) => {
@@ -19,5 +17,14 @@ router.get('/my-profile', function(req, res, next) {
         // console.log(token);
 
         res.render("reset-password");
+    })
+    .get('/my-profile', function(req, res, next) {
+        res.render('profile');
+    })
+    .get("/product-single", (req, res) => {
+        res.render('product-single');
+    })
+    .get("/my-wishlist", (req, res) => {
+        res.render('wishlist');
     });
 module.exports = router;
