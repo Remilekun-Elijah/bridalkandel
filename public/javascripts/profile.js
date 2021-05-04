@@ -31,7 +31,7 @@ document.querySelector("#edit-number-form").addEventListener("submit", e => {
     $("#edit-number-form .form-btn").attr("disabled", true);
 
     const formName = document.querySelector("#edit-number-form").getAttribute("data-name");
-    const uri = `http://localhost:5000/api/v1/user/profile?token=${token}&update_type=${formName}`;
+    const uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}&update_type=${formName}`;
 
     const body = {
         type: document.querySelector("#edit-number-form").type.value,
@@ -82,7 +82,7 @@ document.querySelector("#update-basic-info").addEventListener("submit", e => {
     // console.log($("#update-basic-info .form-btn").attr("disabled", true));
 
     const formName = document.querySelector("#update-basic-info").getAttribute("data-name");
-    const uri = `http://localhost:5000/api/v1/user/profile?token=${token}&update_type=${formName}`;
+    const uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}&update_type=${formName}`;
 
     const body = {
         name: document.querySelector("#update-basic-info").fullname.value,
@@ -94,7 +94,7 @@ document.querySelector("#update-basic-info").addEventListener("submit", e => {
         data: body,
         success: (data) => {
 
-            if(data.data) {
+            if (data.data) {
                 show(".fullName", data.data.name);
                 localStorage.setItem("loginUser", data.token);
 
@@ -154,7 +154,7 @@ document.querySelector("#edit-address-info").addEventListener("submit", e => {
 
     let token = localStorage.getItem("loginUser");
     const formName = document.querySelector("#edit-address-info").getAttribute("data-name");
-    const uri = `http://localhost:5000/api/v1/user/profile?token=${token}&update_type=${formName}`;
+    const uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}&update_type=${formName}`;
 
     console.log(formName)
     const details = {
@@ -211,7 +211,7 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
     $("#profile-img .btn-success").html(`${$("#profile-img .btn-success").text()} <span class="spinner-border spinner-border-sm"></span>`);
     $("#profile-img .btn-success").attr("disabled", true);
 
-    const url = `http://localhost:5000/api/v1/user/profile/image_upload?token=${token}`;
+    const url = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile/image_upload?token=${token}`;
     e.preventDefault();
 
 
@@ -224,7 +224,7 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
     }
     console.log(inputFile.files);
 
-    fetch(`http://localhost:5000/api/v1/user/profile/image_upload?token=${token}`, {
+    fetch(`https://bridalkandy-api.herokuapp.com/api/v1/user/profile/image_upload?token=${token}`, {
         method: "PUT",
         headers: {
             // "content-type": "application/json charset=UTF-8"
@@ -266,7 +266,7 @@ document.querySelectorAll(".address .icofont-ui-delete").forEach(tag => {
         let token = localStorage.getItem("loginUser");
         const el = e.target.parentElement.parentElement.parentElement.parentElement;
         console.log(el.children[0].textContent);
-        const url = `http://localhost:5000/api/v1/user/profile?token=${token}&delete_type=address`;
+        const url = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}&delete_type=address`;
         const bodydata = {
             type: el.children[0].textContent,
             address: el.children[1].textContent
@@ -297,7 +297,7 @@ document.querySelectorAll(".number .icofont-ui-delete").forEach(tag => {
 
         const el = e.target.parentElement.parentElement.parentElement.parentElement;
         console.log(el.children[0].textContent);
-        const url = `http://localhost:5000/api/v1/user/profile?token=${token}&delete_type=number`;
+        const url = `https://bridalkandy-api.herokuapp.com/api/v1/v1/user/profile?token=${token}&delete_type=number`;
         const bodydata = {
             type: el.children[0].textContent,
             number: el.children[1].textContent

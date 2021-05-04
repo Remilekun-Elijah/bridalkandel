@@ -1,5 +1,5 @@
-let token = localStorage.getItem("loginUser");
 // jshint esversion:8
+let token = localStorage.getItem("loginUser");
 const product = [{
         name: "White Rosy Gown",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem facilis repudiandae nostrum at illum, unde dicta, aliquam, deleniti voluptatibus enim eius blanditiis officiis nesciunt exercitationem. Optio consequuntur aperiam itaque nisi!",
@@ -146,8 +146,8 @@ function addToCart() {
                 }
             });
             // const { name, img, price, size, category } = li[0];
-            const bodydata = { name, image, price,size,owner, user,category } = li[0],
-                uri = `http://localhost:5000/api/v1/user/cart?token=${token}`
+            const bodydata = { name, image, price, size, owner, user, category } = li[0],
+                uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/cart?token=${token}`
             console.log(bodydata);
             $.ajax({
                 type: "POST",
@@ -218,7 +218,7 @@ function updateCart() {
             }
         });
         const bodydata = { name, img, price, category } = li[0];
-        const uri = `http://localhost:5000/api/v1/user/cart?token=${token}`
+        const uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/cart?token=${token}`
         console.log(bodydata);
         $.ajax({
             type: "POST",
@@ -362,7 +362,7 @@ function show(el, val) {
 }
 
 try {
-    const uri = `http://localhost:5000/api/v1/user/profile?token=${token}`;
+    const uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}`;
 
     fetch(uri)
         .then((res) => {
@@ -402,7 +402,7 @@ try {
 
                 localStorage.setItem("loginUser", data.token);
 
-                if(res.isActive === false){
+                if (res.isActive === false) {
                     let h5 = document.createElement('h5');
                     h5.className = "text-center mb-3";
                     h5.style.marginTop = '-10px';
@@ -410,18 +410,18 @@ try {
                     h5.innerHTML = `<i class="fas fa-exclamation-circle text-warning"></i> Your email address isn't verified yet`;
                     let div = document.querySelector(`.profile-part .container`);
                     console.log(div)
-                    document.querySelector('.profile-part').insertBefore(  h5, div);
+                    document.querySelector('.profile-part').insertBefore(h5, div);
 
                     let i = document.createElement('i');
                     i.style.cursor = 'pointer';
                     i.title = 'Click to get verification link'
-                    i.className='fas fa-exclamation-circle text-warning';
-                    document.querySelector('#userEmail-wrapper').insertBefore(  i, document.querySelector('#userEmail-wrapper .userEmail') );
+                    i.className = 'fas fa-exclamation-circle text-warning';
+                    document.querySelector('#userEmail-wrapper').insertBefore(i, document.querySelector('#userEmail-wrapper .userEmail'));
 
-                    i.addEventListener('click',e=>{
+                    i.addEventListener('click', e => {
                         e.target.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
                         console.log(e.target)
-                        const uri = `http://localhost:5000/api/v1/user/profile?token=${token}&update_type=profile-info`;
+                        const uri = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}&update_type=profile-info`;
 
                         const body = {
                             name: '',
