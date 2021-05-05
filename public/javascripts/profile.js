@@ -92,6 +92,7 @@ document.querySelector("#update-basic-info").addEventListener("submit", e => {
         success: (data) => {
 
             if (data.data) {
+                show(".firstName", data.data.name.split(' ')[0]);
                 show(".fullName", data.data.name);
                 localStorage.setItem("loginUser", data.token);
 
