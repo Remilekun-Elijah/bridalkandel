@@ -1,8 +1,5 @@
 // jshint esversion:6
-document.querySelector("#login").parentElement.addEventListener("click", () => {
-    localStorage.removeItem("loginUser");
-    alert('Logged out successfully');
-});
+
 
 $(".avatar").click((function() {
     $(".avatar label").html(`${$(".avatar label").text()} <span class="spinner-border spinner-border-sm"></span>`);
@@ -211,7 +208,9 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
     $("#profile-img .btn-success").html(`${$("#profile-img .btn-success").text()} <span class="spinner-border spinner-border-sm"></span>`);
     $("#profile-img .btn-success").attr("disabled", true);
 
-    const url = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile/image_upload?token=${token}`;
+    const url =
+        `https://bridalkandy-api.herokuapp.com/api/v1/user/profile/image_upload?token=${token}`;
+    // `http://localhost:5000/api/v1/user/profile/image_upload?token=${token}`;
     e.preventDefault();
 
 
@@ -224,7 +223,7 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
     }
     console.log(inputFile.files);
 
-    fetch(`https://bridalkandy-api.herokuapp.com/api/v1/user/profile/image_upload?token=${token}`, {
+    fetch(url, {
         method: "PUT",
         headers: {
             // "content-type": "application/json charset=UTF-8"
@@ -297,7 +296,7 @@ document.querySelectorAll(".number .icofont-ui-delete").forEach(tag => {
 
         const el = e.target.parentElement.parentElement.parentElement.parentElement;
         console.log(el.children[0].textContent);
-        const url = `https://bridalkandy-api.herokuapp.com/api/v1/v1/user/profile?token=${token}&delete_type=number`;
+        const url = `https://bridalkandy-api.herokuapp.com/api/v1/user/profile?token=${token}&delete_type=number`;
         const bodydata = {
             type: el.children[0].textContent,
             number: el.children[1].textContent

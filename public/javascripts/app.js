@@ -381,12 +381,12 @@ try {
             try {
                 console.log(data.data.name)
                 const res = data.data;
-                document
-                    .querySelector("#login")
-                    .parentElement.addEventListener("click", () => {
-                        localStorage.removeItem("loginUser");
-                        alert("click");
-                    });
+
+                document.querySelector("#login").parentElement.addEventListener("click", () => {
+                    localStorage.removeItem("loginUser");
+                    alert('Logged out successfully');
+                });
+
                 console.log(res.isActive)
 
                 show(".firstName", res.name.split(" ")[0]);
@@ -433,7 +433,6 @@ try {
                             url: uri,
                             data: body,
                             success: (data) => {
-
 
                                 alert(data.msg);
                                 $("#userEmail-wrapper .spinner-border").remove();

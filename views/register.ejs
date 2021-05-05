@@ -103,7 +103,7 @@
     <header>
     </header>
     <section id="register" class="mb-5 d-flex justify-content-center align-items-cente mt-0 -5">
-        <form action="https://bridalkandy-api.herokuapp.com/api/v1/user/create-account" method="POST" class=" py-20" name="register">
+        <form action="http://localhost:5000/api/v1/user/create-account" method="POST" class=" py-20" name="register">
             <h1 class="text-center mb-0 text-25" style="color: #8740dd;">Create an account</h1>
             <h3 class="text-warning text-center text-18 px-3" id="signupErr"></h3>
             <fieldset class="mx-auto-lib user-form-part">
@@ -156,8 +156,9 @@
         <section class="container text-center text-black bg-white pt-100 pb-100 d-none mt-100 mb-100" id="msg">
 
             <h3 class="text-sucess text-30" id="signupSuccess"></h3>
-            <h3 class="text-25">Use the link sent to your email address to activate your account.</h3>
-            <h4 class="text-25">You have <b class="text-pink">15minutes</b> before the link expires.</h4>
+            <h3 class="text-23 mt-1">Use the link sent to your email to verify your email address.</h3>
+            <h4 class="text-23 mt-1">You have until <b class="text-pink">7days</b> before the link expires.</h4>
+            <h5 class="text-22 mt-10">Click <a href="/user/login" class="text-primary">here</a> to login your account.</h5>
         </section>
     </section>
 
