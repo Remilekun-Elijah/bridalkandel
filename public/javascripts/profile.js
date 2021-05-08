@@ -227,8 +227,6 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
 
     fetch(url, {
         method: "POST",
-        mode: "cors",
-        headers: { 'Content-Type': 'multipart/form-data' },
         body: formData
     }).then(res => {
         if (res.status == 201) {
