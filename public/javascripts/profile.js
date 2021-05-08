@@ -229,19 +229,20 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
         method: "POST",
         body: formData
     }).then(res => {
-        if (res.status == 201) {
-            // alert(res.responseText);
-            // console.log(res);
-            return res.json();
-        } else {
-            alert('You must attach an image');
-        }
-        console.log(res.status);
+        // if (res.status == 201) {
+        // alert(res.responseText);
+        // console.log(res);
+        console.log(res.status, res);
+        return res.json();
+        // } else {
+        //     alert('You must attach an image');
+        // }
+
 
     }).then(data => {
-        if (data) {
+        if (data.img) {
             alert(data.msg);
-            // console.log(data);
+            console.log(data);
 
             show(".userImage", data.img)
 
@@ -256,7 +257,7 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
             $(e.target.parentElement.parentElement.parentElement).attr('aria-hidden', 'true');
             $('body').css('padding-right', '0');
             $('body').removeClass('modal-open');
-        }
+        } else alert(data.err);
         $("#profile-img .btn-success").attr("disabled", false);
         $("#profile-img .spinner-border").remove();
     }).catch(err => {
