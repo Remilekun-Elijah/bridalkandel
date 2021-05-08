@@ -221,37 +221,49 @@ document.querySelector("#profile-img").addEventListener("submit", e => {
 
     for (const file of inputFile.files) {
         formData.append("avatar", file);
+
     }
-    console.log(inputFile.files);
+    // console.log(inputFile.files);
 
     fetch(url, {
-        method: "PUT",
-        headers: {
-            // "content-type": "application/json charset=UTF-8"
-        },
+        method: "POST",
         body: formData
-    }).then(res => res.json()).then(data => {
-        alert(data.msg);
-        console.log(data);
+    }).then(res => {
+        if (res.status == 201) {
+            // alert(res.responseText);
+            // console.log(res);
+            return res.json();
+        } else {
+            alert('You must attach an image');
+        }
+        console.log(res.status);
 
-        show(".userImage", data.img)
-        $("#profile-img .spinner-border").remove();
-        inputFile.value = '';
+    }).then(data => {
+        if (data) {
+            alert(data.msg);
+            // console.log(data);
 
-        $('.modal-backdrop').remove();
-        $(e.target.parentElement.parentElement.parentElement).css('display', 'none');
-        $(e.target.parentElement.parentElement.parentElement).removeClass('show');
-        $(e.target.parentElement.parentElement.parentElement).css('padding-right', '0');
-        $(e.target.parentElement.parentElement.parentElement).removeAttr('aria-modal');
-        $(e.target.parentElement.parentElement.parentElement).attr('aria-hidden', 'true');
-        $('body').css('padding-right', '0');
-        $('body').removeClass('modal-open');
+            show(".userImage", data.img)
 
+            // inputFile.value = '';
+
+
+            $('.modal-backdrop').remove();
+            $(e.target.parentElement.parentElement.parentElement).css('display', 'none');
+            $(e.target.parentElement.parentElement.parentElement).removeClass('show');
+            $(e.target.parentElement.parentElement.parentElement).css('padding-right', '0');
+            $(e.target.parentElement.parentElement.parentElement).removeAttr('aria-modal');
+            $(e.target.parentElement.parentElement.parentElement).attr('aria-hidden', 'true');
+            $('body').css('padding-right', '0');
+            $('body').removeClass('modal-open');
+        }
         $("#profile-img .btn-success").attr("disabled", false);
+        $("#profile-img .spinner-border").remove();
     }).catch(err => {
+        console.log(formData.get('avatar'));
         console.log(err);
 
-        alert(err.responseText || 'You must select an image to upload');
+        alert(err);
         $("#profile-img .spinner-border").remove();
         $("#profile-img .btn-success").attr("disabled", false);
         $("#profile-img .spinner-border").remove();
